@@ -25,6 +25,7 @@ app.use(session({
     store: store
 }))
 app.set("views", path.resolve() + '/views')
+app.set("view engine", "ejs")
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(path.resolve(), 'public')))
