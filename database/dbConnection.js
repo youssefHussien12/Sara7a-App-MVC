@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 const connectDB = async () => {
-    const mongoURI ='mongodb+srv://Saraha-App-MVC:e1U2wTRnJdu6FeYK@cluster0.ydjbez3.mongodb.net/sara7a-app';
-    await mongoose.connect(mongoURI).then(()=>{
+    const mongoURI = 'mongodb+srv://Sara7a-App:AnoyFPSkMrIcBdME@cluster0.ydjbez3.mongodb.net/sara7a-app';
+    await mongoose.connect(mongoURI).then(() => {
         console.log('MongoDB Connected Successfully!');
 
-    }).catch((error)=>{
+    }).catch((error) => {
         console.error('MongoDB Connection Error:', error.message);
-    }) 
+    })
 };
 
 export default connectDB;

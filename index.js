@@ -1,3 +1,8 @@
+process.on('uncaughtException', (err) => {
+    console.error('There was an uncaught error', err)
+    process.exit(1) //mandatory (as per the Node.js docs)
+})
+
 import express from 'express'
 import connectDB from './database/dbConnection.js'
 import homeRouter from './src/modules/home/home.route.js'
@@ -15,7 +20,7 @@ const port = process.env.PORT || 3000
 
 
 var store = new MongoDBStore({
-    uri: 'mongodb+srv://Saraha-App-MVC:e1U2wTRnJdu6FeYK@cluster0.ydjbez3.mongodb.net/sara7a-app',
+    uri: 'mongodb+srv://Sara7a-App:AnoyFPSkMrIcBdME@cluster0.ydjbez3.mongodb.net/sara7a-app',
     collection: 'mySessions'
 });
 app.use(session({
@@ -24,7 +29,8 @@ app.use(session({
     saveUninitialized: true,
     store: store
 }))
-app.set("views", path.resolve() + '/views')
+app.set("views", path.join(path.resolve(), 'views'))
+
 app.set("view engine", "ejs")
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
@@ -37,6 +43,11 @@ app.use(loginRouter)
 app.use(registerRouter)
 app.use(messagesRouter)
 app.use(userRouter)
+
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason)
+})
 
 
 
