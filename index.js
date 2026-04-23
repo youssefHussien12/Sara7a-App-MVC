@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000
 
 
 var store = new MongoDBStore({
-    uri: 'mongodb+srv://Sara7a-App:AnoyFPSkMrIcBdME@cluster0.ydjbez3.mongodb.net/sara7a-app',
+    uri: 'mongodb://mongo:iRVkwvWIzmJLwNNuzqcgbRVTZNTGAGXC@shinkansen.proxy.rlwy.net:19027',
     collection: 'mySessions'
 });
 app.use(session({

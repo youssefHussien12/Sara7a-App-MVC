@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const connectDB = async () => {
-    const mongoURI = 'mongodb+srv://Sara7a-App:AnoyFPSkMrIcBdME@cluster0.ydjbez3.mongodb.net/sara7a-app';
+    const mongoURI = 'mongodb://mongo:iRVkwvWIzmJLwNNuzqcgbRVTZNTGAGXC@shinkansen.proxy.rlwy.net:19027';
     await mongoose.connect(mongoURI).then(() => {
         console.log('MongoDB Connected Successfully!');
 
